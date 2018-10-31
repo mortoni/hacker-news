@@ -3,3 +3,13 @@
   height: 100vh;
   font-size: 1.2rem;
 }
+
+.comments {
+    font-size: 1rem;
+}
+
+.news-container {
+    overflow: scroll;
+    height: 560px;
+    padding-right: 1rem;
+}

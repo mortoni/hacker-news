@@ -1,0 +1,7 @@
+.article {
+    border: .1rem dashed #e7ecef;
+    border-radius: 1rem;
+    padding: 1rem;
+    font-size: .7rem;
+    margin-bottom: 1rem;
+}

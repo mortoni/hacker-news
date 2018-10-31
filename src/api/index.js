@@ -1,10 +1,9 @@
 import axios from 'axios'
 
 const API_URL = "https://hn.algolia.com/api/v1/"
-//sort=byPopularity&prefix&page=0&dateRange=all&type=all&query=Haskell
 
 const instance = axios.create({
-  baseURL: 'https://hn.algolia.com/api/v1/',
+  baseURL: API_URL,
   timeout: 1000,
   headers: {'X-Custom-Header': 'foobar'}
 });
