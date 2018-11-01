@@ -47,14 +47,21 @@ class Main extends Component {
             this.setState({loading: false});
             this.setState({
                 articles: data.hits,
-                maxPages: data.nbPages
+                maxPages: data.nbPages,
+
             });
         }).catch(error => console.log(error));
     }
 
     handleInputChange = (query) => {
+        let { page } = this.state;
+        if(query !== this.state.query) {
+            page = 0;
+        }
+
         this.setState({
-            query
+            query,
+            page
         }, () => {
             if (this.state.query && this.state.query.length > 3) {
                 this.onSearch();
@@ -74,7 +81,7 @@ class Main extends Component {
     }
 
     previous = () => {
-        const { page, maxPages } = this.state;
+        const { page } = this.state;
 
         if(page <= 0) { return }
 
@@ -121,6 +128,7 @@ class Main extends Component {
                         articles={ articles }
                         maxPages={ maxPages }
                         page={ page }
+                        loading={ loading }
                         previous={ this.previous }
                         next={ this.next }/>
                 </div>

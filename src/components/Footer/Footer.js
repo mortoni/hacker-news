@@ -1,17 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './Footer.css';
 import { If, Then } from 'react-if'
 
 const Footer = (props) => {
-    const { articles, previous, page, maxPages, next } = props;
+    const { articles, previous, page, maxPages, next, loading } = props;
 
     const isNext = () => {
-        if((page + 1) < maxPages) { return true; }
+        if((page + 1) < maxPages && !loading) { return true; }
         return false
     }
 
     const isPrevious = () => {
-        if(page > 0) { return true; }
+        if(page > 0 && !loading) { return true; }
         return false;
     }
 
