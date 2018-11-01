@@ -59,13 +59,12 @@ class Main extends Component {
             if (this.state.query && this.state.query.length > 3) {
                 this.onSearch();
             }
-        })
+        });
     }
 
     next = () => {
         const { page, maxPages } = this.state;
-
-        if(page > maxPages) { return }
+        if((page + 1) >= maxPages) { return }
 
         this.setState({
             page: this.state.page + 1

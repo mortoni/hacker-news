@@ -4,6 +4,17 @@ import { If, Then } from 'react-if'
 
 const Footer = (props) => {
     const { articles, previous, page, maxPages, next } = props;
+
+    const isNext = () => {
+        if((page + 1) < maxPages) { return true; }
+        return false
+    }
+
+    const isPrevious = () => {
+        if(page > 0) { return true; }
+        return false;
+    }
+
     return (
         <If condition={ articles.length > 0 }>
             <Then>
@@ -14,7 +25,8 @@ const Footer = (props) => {
                                 <button
                                     type="button"
                                     className="btn btn-secondary btn-sm float-left"
-                                    onClick={ previous }>
+                                    onClick={ previous }
+                                    disabled={ !isPrevious() }>
                                     Previous
                                 </button>
                             </div>
@@ -27,6 +39,7 @@ const Footer = (props) => {
                                 <button
                                     type="button"
                                     className="btn btn-secondary btn-sm float-right"
+                                    disabled={ !isNext() }
                                     onClick={ next }>
                                     Next
                                 </button>
